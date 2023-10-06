@@ -1,0 +1,5 @@
+add_library(spatial_raster)
+add_library(spatial::raster ALIAS spatial_raster)
+target_sources(spatial_raster PUBLIC raster/raster.cpp raster/cell.cpp)
+target_include_directories(spatial_raster PUBLIC "${_SPATIAL_INCLUDE_DIR}")
+target_link_libraries(spatial INTERFACE spatial_raster)
