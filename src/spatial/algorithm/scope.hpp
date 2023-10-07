@@ -8,15 +8,22 @@
 
 #pragma once
 
-#include <spatial/io/driver.hpp>
-
 namespace st {
-namespace io {
-namespace format {
 
-struct wkb : driver<wkb>
+namespace scope {
+
+struct local
 {};
 
-} // namespace format
-} // namespace io
+struct focal
+{};
+
+struct zonal
+{};
+
+struct global
+{};
+
+} // namespace scope
+
 } // namespace st

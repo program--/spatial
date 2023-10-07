@@ -18,7 +18,7 @@
 #include <spatial/raster/axis.hpp>
 #include <spatial/raster/cell.hpp>
 
-namespace spatial {
+namespace st {
 
 struct raster
 {
@@ -73,4 +73,4 @@ struct raster
     pointer        data_;
 };
 
-} // namespace spatial
+} // namespace st

@@ -11,7 +11,7 @@
 #include <vector>
 #include <cstdint>
 
-namespace spatial {
+namespace st {
 namespace io {
 
 template<typename Derived>
@@ -51,4 +51,4 @@ struct driver
 };
 
 } // namespace io
-} // namespace spatial
+} // namespace st

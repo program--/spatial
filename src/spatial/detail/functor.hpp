@@ -8,7 +8,7 @@
 
 #pragma once
 
-namespace spatial {
+namespace st {
 namespace detail {
 
 template<typename... Fs>
@@ -37,4 +37,4 @@ struct functor<F> : public F
 };
 
 } // namespace detail
-} // namespace spatial
+} // namespace st

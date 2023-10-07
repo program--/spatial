@@ -11,7 +11,7 @@
 #include <cstring>
 #include <stdexcept>
 
-namespace spatial {
+namespace st {
 
 #define MOVE_OR_DEFAULT_ALLOC(allocator) \
     (allocator != nullptr                \
@@ -107,4 +107,4 @@ auto raster::end() const noexcept -> const_iterator
     return cell{ data_ + ncells(), nrows() - 1, ncols(), nrows(), ncols() };
 }
 
-} // namespace spatial
+} // namespace st

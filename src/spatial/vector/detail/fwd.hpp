@@ -8,15 +8,13 @@
 
 #pragma once
 
-#include <spatial/io/driver.hpp>
-
 namespace st {
-namespace io {
-namespace format {
 
-struct wkb : driver<wkb>
-{};
+struct point;
+struct linestring;
+struct polygon;
 
-} // namespace format
-} // namespace io
+template<typename Geometry>
+struct multi;
+
 } // namespace st

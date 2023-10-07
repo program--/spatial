@@ -8,15 +8,25 @@
 
 #pragma once
 
-#include <spatial/io/driver.hpp>
+#include <spatial/algorithm/scope.hpp>
+#include "spatial/detail/types.hpp"
+#include <spatial/raster/fwd.hpp>
 
 namespace st {
-namespace io {
-namespace format {
 
-struct wkb : driver<wkb>
-{};
+template<typename Model, typename Scope = void>
+struct add;
 
-} // namespace format
-} // namespace io
+template<>
+struct add<raster, scope::local>;
+
+template<>
+struct add<raster, scope::focal>;
+
+template<>
+struct add<raster, scope::zonal>;
+
+template<>
+struct add<raster, scope::global>;
+
 } // namespace st

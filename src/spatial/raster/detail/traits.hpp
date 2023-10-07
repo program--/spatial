@@ -8,15 +8,16 @@
 
 #pragma once
 
-#include <spatial/io/driver.hpp>
+#include <spatial/detail/traits.hpp>
 
 namespace st {
-namespace io {
-namespace format {
 
-struct wkb : driver<wkb>
+template<>
+struct is_spatial<st::raster> : std::true_type
 {};
 
-} // namespace format
-} // namespace io
+template<types::size_type ND>
+struct is_spatial<st::mdraster<ND>> : std::true_type
+{};
+
 } // namespace st

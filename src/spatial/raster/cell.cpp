@@ -8,7 +8,7 @@
 
 #include <spatial/raster/cell.hpp>
 
-namespace spatial {
+namespace st {
 
 constexpr auto invalid_value = static_cast<cell::size_type>(-1);
 
@@ -207,4 +207,4 @@ cell::operator const_pointer() const noexcept
     return cell_;
 }
 
-} // namespace spatial
+} // namespace st

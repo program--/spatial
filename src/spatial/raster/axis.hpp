@@ -13,12 +13,12 @@
 #include <spatial/raster/fwd.hpp>
 #include <spatial/detail/types.hpp>
 
-namespace spatial {
+namespace st {
 
 struct axis
 {
-    using size_type  = spatial::types::size_type;
-    using value_type = spatial::types::value_type;
+    using size_type  = st::types::size_type;
+    using value_type = st::types::value_type;
 
     constexpr axis(value_type from, value_type to, size_type length)
       : len_(length)
@@ -63,4 +63,4 @@ struct axis
     value_type to_;
 };
 
-} // namespace spatial
+} // namespace st

@@ -10,7 +10,7 @@
 
 #include <spatial/io/driver.hpp>
 
-namespace spatial {
+namespace st {
 namespace io {
 
 template<typename Format, typename Model, typename... Args>
@@ -31,4 +31,4 @@ auto serialize(Model&& model, Args&&... args)
 }
 
 } // namespace io
-} // namespace spatial
+} // namespace st

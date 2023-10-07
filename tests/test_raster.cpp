@@ -4,11 +4,11 @@
 
 TEST_CASE("raster construction")
 {
-    constexpr auto  ncols  = 10;
-    constexpr auto  nrows  = 15;
-    constexpr auto  ncells = ncols * nrows;
+    constexpr auto ncols  = 10;
+    constexpr auto nrows  = 15;
+    constexpr auto ncells = ncols * nrows;
 
-    spatial::raster x{ 15, 10, { 10, -10, 5, -5 } };
+    st::raster     x{ 15, 10, { 10, -10, 5, -5 } };
 
     CHECK(x.ncols() == ncols);
     CHECK(x.nrows() == nrows);
@@ -36,7 +36,7 @@ TEST_CASE("raster construction")
 
     const auto  origin  = x.at(0, 0);
     const auto  alt     = x.at(3, 3);
-    const auto& invalid = spatial::cell::invalid;
+    const auto& invalid = st::cell::invalid;
 
     REQUIRE_EQ(origin.right(), x.at(1, 0));
     REQUIRE_EQ(origin.top(), x.at(0, 1));

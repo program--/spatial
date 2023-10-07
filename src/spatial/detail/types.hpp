@@ -8,9 +8,10 @@
 
 #pragma once
 
+#include <cmath>
 #include <cstddef>
 
-namespace spatial {
+namespace st {
 namespace types {
 
 using size_type       = std::size_t;
@@ -28,5 +29,6 @@ struct extent
 } // namespace types
 
 constexpr auto dynamic = static_cast<types::size_type>(-1);
+constexpr auto nan     = NAN;
 
-} // namespace spatial
+} // namespace st

@@ -12,14 +12,10 @@
 
 #include <spatial/raster/fwd.hpp>
 
-namespace spatial {
+namespace st {
 
 template<typename Tp>
 struct is_spatial : std::false_type
 {};
 
-template<>
-struct is_spatial<spatial::raster> : std::true_type
-{};
-
-} // namespace spatial
+} // namespace st

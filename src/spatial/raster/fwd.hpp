@@ -10,7 +10,7 @@
 
 #include "spatial/detail/types.hpp"
 
-namespace spatial {
+namespace st {
 
 struct cell;
 struct axis;
@@ -28,4 +28,4 @@ struct mdcell;
 template<>
 struct mdcell<dynamic>;
 
-} // namespace spatial
+} // namespace st

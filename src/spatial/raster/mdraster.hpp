@@ -15,7 +15,7 @@
 #include <spatial/detail/allocator.hpp>
 #include <spatial/raster/axis.hpp>
 
-namespace spatial {
+namespace st {
 
 template<types::size_type ND>
 struct mdcell
@@ -27,7 +27,7 @@ struct mdraster
     static_assert(
       ND > 2,
       "mdraster must have ND greater than 2. "
-      "Use spatial::raster for ND == 2."
+      "Use st::raster for ND == 2."
     );
 
     using size_type       = types::size_type;
@@ -78,4 +78,4 @@ struct mdraster
     }
 };
 
-} // namespace spatial
+} // namespace st

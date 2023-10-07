@@ -13,13 +13,13 @@
 #include <spatial/raster/fwd.hpp>
 #include <spatial/detail/types.hpp>
 
-namespace spatial {
+namespace st {
 
 struct cell
 {
-    using size_type       = spatial::types::size_type;
-    using difference_type = spatial::types::difference_type;
-    using value_type      = spatial::types::value_type;
+    using size_type       = st::types::size_type;
+    using difference_type = st::types::difference_type;
+    using value_type      = st::types::value_type;
     using reference       = value_type&;
     using const_reference = const value_type&;
     using pointer         = value_type*;
@@ -78,4 +78,4 @@ struct cell
     pointer         cell_;
 };
 
-} // namespace spatial
+} // namespace st

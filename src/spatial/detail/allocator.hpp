@@ -11,7 +11,7 @@
 #include <cstddef>
 #include <memory>
 
-namespace spatial {
+namespace st {
 namespace detail {
 
 template<typename Tp>
@@ -28,7 +28,7 @@ struct virtual_allocator
 namespace alloc {
 
 template<typename Tp>
-class stl : public spatial::detail::virtual_allocator<Tp>
+class stl : public st::detail::virtual_allocator<Tp>
 {
     using traits = std::allocator_traits<std::allocator<Tp>>;
 
@@ -58,4 +58,4 @@ class stl : public spatial::detail::virtual_allocator<Tp>
 } // namespace alloc
 
 } // namespace detail
-} // namespace spatial
+} // namespace st

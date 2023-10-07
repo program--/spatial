@@ -10,7 +10,7 @@
 
 #include <spatial/io/driver.hpp>
 
-namespace spatial {
+namespace st {
 namespace io {
 
 template<typename Format, typename Model, typename... Args>
@@ -37,4 +37,4 @@ Model deserialize(typename driver<Format>::buffer&& buf, Args&&... args)
 }
 
 } // namespace io
-} // namespace spatial
+} // namespace st
