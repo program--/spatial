@@ -2,7 +2,7 @@
 
 #include <spatial/raster/raster.hpp>
 
-TEST_CASE("raster construction")
+TEST_CASE("[st::raster] construction")
 {
     constexpr auto ncols  = 10;
     constexpr auto nrows  = 15;

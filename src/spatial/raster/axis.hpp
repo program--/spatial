@@ -29,9 +29,9 @@ struct axis
 
     constexpr size_type along(value_type value)
     {
-        const auto diff          = (to_ - from_) / (len_ - 1);
+        const auto diff = (to_ - from_) / static_cast<double>(len_ - 1);
         const auto compute_bound = [&](auto x) { return from_ + (diff * x); };
-        size_type  l             = 0;
+        size_type  l             = 0U;
         size_type  r             = len_;
 
         while (l < r) {

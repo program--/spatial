@@ -14,7 +14,7 @@
 #include <spatial/raster/fwd.hpp>
 #include <spatial/detail/types.hpp>
 #include <spatial/detail/functor.hpp>
-#include <spatial/detail/allocator.hpp>
+#include <spatial/detail/virtual_allocator.hpp>
 #include <spatial/raster/axis.hpp>
 #include <spatial/raster/cell.hpp>
 

@@ -10,7 +10,10 @@
 
 namespace st {
 
-template<typename Geometry>
-struct multi;
+template<typename Tp>
+struct proxy
+{
+    proxy() = delete;
+};
 
 } // namespace st

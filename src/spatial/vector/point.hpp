@@ -8,56 +8,85 @@
 
 #pragma once
 
-#include "spatial/detail/types.hpp"
+#include <type_traits>
+#include <utility>
+
+#include <spatial/detail/types.hpp>
+#include <spatial/detail/traits.hpp>
+#include <spatial/detail/proxy.hpp>
 
 namespace st {
 
-struct point
+namespace detail {
+
+template<typename Tp, bool = std::is_reference<Tp>::value>
+struct point_base;
+
+template<typename Tp>
+struct point_base<Tp, false>
 {
-    using value_type      = types::value_type;
+    static_assert(
+      !std::is_pointer<Tp>::value,
+      "point value type cannot be a pointer"
+    );
+
+    using value_type      = detail::remove_cvref_t<Tp>;
     using reference       = value_type&;
     using const_reference = const value_type&;
 
-    struct proxy;
+    constexpr point_base()
+      : xy_(st::nan, st::nan){};
 
-    constexpr point()
-      : x_(st::nan)
-      , y_(st::nan){};
+    constexpr point_base(Tp x, Tp y)
+      : xy_(x, y){};
 
-    constexpr point(value_type x, value_type y)
-      : x_(x)
-      , y_(y){};
-
-    constexpr reference       x() noexcept { return x_; }
-    constexpr const_reference x() const noexcept { return x_; }
-    constexpr reference       y() noexcept { return y_; }
-    constexpr const_reference y() const noexcept { return y_; }
+    constexpr reference       x() noexcept { return xy_.first; }
+    constexpr const_reference x() const noexcept { return xy_.first; }
+    constexpr reference       y() noexcept { return xy_.second; }
+    constexpr const_reference y() const noexcept { return xy_.second; }
 
   private:
-    value_type x_;
-    value_type y_;
+    std::pair<Tp, Tp> xy_;
 };
 
-struct point::proxy
+template<typename Tp>
+struct point_base<Tp, true>
 {
-    using value_type      = point::value_type;
-    using reference       = point::reference;
-    using const_reference = point::const_reference;
+    static_assert(
+      !std::is_pointer<Tp>::value,
+      "point value type cannot be a pointer"
+    );
 
-    constexpr proxy()     = delete;
+    using value_type       = detail::remove_cvref_t<Tp>;
+    using reference        = value_type&;
+    using const_reference  = const value_type&;
 
-    constexpr proxy(reference x, reference y)
-      : x_(x)
-      , y_(y){};
+    constexpr point_base() = delete;
 
-    constexpr reference       x() noexcept { return x_; }
-    constexpr const_reference x() const noexcept { return x_; }
-    constexpr reference       y() noexcept { return y_; }
-    constexpr const_reference y() const noexcept { return y_; }
+    template<typename Up>
+    constexpr point_base(point_base<Up>& p)
+      : xy_(p.x(), p.y()){};
+
+    template<typename Up>
+    constexpr point_base& operator=(point_base<Up>& p)
+    {
+        this->xy_ = { p.x(), p.y() };
+        return *this;
+    }
+
+    constexpr reference       x() noexcept { return xy_.first; }
+    constexpr const_reference x() const noexcept { return xy_.first; }
+    constexpr reference       y() noexcept { return xy_.second; }
+    constexpr const_reference y() const noexcept { return xy_.second; }
 
   private:
-    reference x_;
-    reference y_;
+    std::pair<Tp, Tp> xy_;
 };
+
+} // namespace detail
+
+using point           = detail::point_base<double>;
+using point_ref       = detail::point_base<double&>;
+using const_point_ref = const detail::point_base<const double&>;
 
 } // namespace st

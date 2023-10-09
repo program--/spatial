@@ -14,6 +14,13 @@
 
 namespace st {
 
+namespace detail {
+
+template<typename Tp>
+using remove_cvref_t = std::remove_cv_t<std::remove_reference_t<Tp>>;
+
+}
+
 template<typename Tp>
 struct is_spatial : std::false_type
 {};

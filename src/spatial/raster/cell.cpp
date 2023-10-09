@@ -19,7 +19,7 @@ cell::cell()
   , ncols_(invalid_value)
   , cell_(nullptr){};
 
-cell cell::invalid =
+const cell cell::invalid =
   cell{ nullptr, invalid_value, invalid_value, invalid_value, invalid_value };
 
 cell::cell(

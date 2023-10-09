@@ -11,6 +11,8 @@ set(_SPATIAL_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/src")
 set(_SPATIAL_SOURCE_DIR  "${CMAKE_CURRENT_LIST_DIR}/src")
 
 add_library(spatial INTERFACE)
+target_compile_features(spatial INTERFACE cxx_std_14)
+set_target_properties(spatial PROPERTIES CXX_EXTENSIONS OFF)
 
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/src/spatial")
 

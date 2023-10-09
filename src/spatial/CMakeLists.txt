@@ -1,5 +1,17 @@
+find_package(type_safe)
+
 add_library(spatial_raster)
 add_library(spatial::raster ALIAS spatial_raster)
 target_sources(spatial_raster PUBLIC raster/raster.cpp raster/cell.cpp)
 target_include_directories(spatial_raster PUBLIC "${_SPATIAL_INCLUDE_DIR}")
+target_link_libraries(spatial_raster PUBLIC type_safe)
 target_link_libraries(spatial INTERFACE spatial_raster)
+target_compile_features(spatial_raster INTERFACE cxx_std_14)
+set_target_properties(spatial_raster PROPERTIES CXX_EXTENSIONS OFF)
+
+add_library(spatial_vector INTERFACE)
+add_library(spatial::vector ALIAS spatial_vector)
+target_include_directories(spatial_vector INTERFACE "${_SPATIAL_INCLUDE_DIR}")
+target_link_libraries(spatial INTERFACE spatial_vector)
+target_compile_features(spatial_vector INTERFACE cxx_std_14)
+set_target_properties(spatial_vector PROPERTIES CXX_EXTENSIONS OFF)

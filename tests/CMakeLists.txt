@@ -17,3 +17,9 @@ spatial_add_test(test_raster
         test_raster.cpp
     LINKS
         spatial::raster)
+
+spatial_add_test(test_point
+    OBJECTS
+        test_point.cpp
+    LINKS
+        spatial::vector)

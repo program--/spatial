@@ -26,7 +26,7 @@ struct cell
     using const_pointer   = const value_type*;
     using iterator_tag    = std::bidirectional_iterator_tag;
 
-    static cell invalid;
+    static const cell invalid;
 
     cell();
     cell(
