@@ -13,7 +13,6 @@
 
 #include <spatial/detail/types.hpp>
 #include <spatial/detail/traits.hpp>
-#include <spatial/detail/proxy.hpp>
 
 namespace st {
 
@@ -85,8 +84,8 @@ struct point_base<Tp, true>
 
 } // namespace detail
 
-using point           = detail::point_base<double>;
-using point_ref       = detail::point_base<double&>;
-using const_point_ref = const detail::point_base<const double&>;
+using point           = detail::point_base<types::value_type>;
+using point_ref       = detail::point_base<types::value_type&>;
+using const_point_ref = const detail::point_base<const types::value_type&>;
 
 } // namespace st
